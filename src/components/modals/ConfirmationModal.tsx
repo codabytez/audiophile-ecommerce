@@ -5,6 +5,7 @@ import { Button } from "../ui/Button";
 import { useEffect } from "react";
 import Image from "next/image";
 import { formatPrice } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface OrderItem {
   id: string;
@@ -27,6 +28,8 @@ export default function OrderConfirmationModal({
   items,
   grandTotal,
 }: OrderConfirmationModalProps) {
+  const router = useRouter();
+
   // Lock scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -48,7 +51,8 @@ export default function OrderConfirmationModal({
 
   const handleBackToHome = () => {
     onClose();
-    window.location.href = "/";
+    router.push("/");
+    router.refresh();
   };
 
   return (

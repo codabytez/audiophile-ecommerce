@@ -1,6 +1,6 @@
 # Audiophile E-commerce Website
 
-A pixel-perfect, fully functional e-commerce website for premium audio equipment, built with Next.js 14, TypeScript, Tailwind CSS v4, and Convex backend. Features a complete checkout flow with order confirmation emails and real-time cart management.
+A pixel-perfect, fully functional e-commerce website for premium audio equipment, built with Next.js 16, TypeScript, Tailwind CSS v4, and Convex backend. Features a complete checkout flow with order confirmation emails and real-time cart management.
 
 ![Audiophile Homepage](./public/preview.png)
 
@@ -148,9 +148,9 @@ A pixel-perfect, fully functional e-commerce website for premium audio equipment
 
 ### Frontend
 
-- **[Next.js 14](https://nextjs.org/)** - React framework with App Router
+- **[Next.js](https://nextjs.org/)** - React framework with App Router
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
-- **[Tailwind CSS v4](https://tailwindcss.com/)** - CSS-based configuration with custom utilities
+- **[Tailwind CSS](https://tailwindcss.com/)** - CSS-based configuration with custom utilities
 - **[Framer Motion](https://www.framer.com/motion/)** - Animation library
 - **[React Hook Form](https://react-hook-form.com/)** - Form state management
 - **[Zod](https://zod.dev/)** - Schema validation
@@ -219,6 +219,9 @@ Ensure you have the following installed:
 
    # App URL
    NEXT_PUBLIC_APP_URL=http://localhost:1313
+
+   # Email
+   EMAIL_FROM=your-email@example.com
    ```
 
 5. **Get your Resend API Key**
@@ -370,12 +373,13 @@ audiophile-ecommerce/
 
 Create a `.env.local` file with the following variables:
 
-| Variable                 | Description               | Required | Example                                                         |
-| ------------------------ | ------------------------- | -------- | --------------------------------------------------------------- |
-| `CONVEX_DEPLOYMENT`      | Convex deployment name    | Yes      | `prod:your-deployment`                                          |
-| `NEXT_PUBLIC_CONVEX_URL` | Convex API URL            | Yes      | `https://your-project.convex.cloud`                             |
-| `RESEND_API_KEY`         | Resend API key for emails | Yes      | `re_123456789`                                                  |
-| `NEXT_PUBLIC_APP_URL`    | Your app's URL            | Yes      | `http://localhost:1313` (dev) / `https://yourdomain.com` (prod) |
+| Variable                 | Description                      | Required | Example                                                         |
+| ------------------------ | -------------------------------- | -------- | --------------------------------------------------------------- |
+| `CONVEX_DEPLOYMENT`      | Convex deployment name           | Yes      | `prod:your-deployment`                                          |
+| `NEXT_PUBLIC_CONVEX_URL` | Convex API URL                   | Yes      | `https://your-project.convex.cloud`                             |
+| `RESEND_API_KEY`         | Resend API key for emails        | Yes      | `re_123456789`                                                  |
+| `NEXT_PUBLIC_APP_URL`    | Your app's URL                   | Yes      | `http://localhost:1313` (dev) / `https://yourdomain.com` (prod) |
+| `EMAIL_FROM`             | Email address for sending emails | Yes      | `your-email@example.com`                                        |
 
 **Getting API Keys:**
 
