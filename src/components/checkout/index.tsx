@@ -400,6 +400,7 @@ const Checkout: NextPage = () => {
         isOpen={showConfirmation}
         onClose={() => {
           router.push("/");
+          router.refresh();
         }}
         items={items}
         grandTotal={grandTotal}

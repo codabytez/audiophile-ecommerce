@@ -52,7 +52,6 @@ export default function OrderConfirmationModal({
   const handleBackToHome = () => {
     onClose();
     router.push("/");
-    router.refresh();
   };
 
   return (
