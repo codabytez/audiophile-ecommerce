@@ -399,7 +399,6 @@ const Checkout: NextPage = () => {
       <OrderConfirmationModal
         isOpen={showConfirmation}
         onClose={() => {
-          router.push("/");
           router.refresh();
         }}
         items={items}
