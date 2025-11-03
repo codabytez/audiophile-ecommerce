@@ -399,7 +399,7 @@ const Checkout: NextPage = () => {
       <OrderConfirmationModal
         isOpen={showConfirmation}
         onClose={() => {
-          router.refresh();
+          window.location.reload();
         }}
         items={items}
         grandTotal={grandTotal}
