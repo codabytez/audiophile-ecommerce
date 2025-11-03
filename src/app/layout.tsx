@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { CartProvider } from "@/context/CartContext";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -23,8 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={manrope.variable}>
-      <body className="font-manrope antialiased">
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+      <body className="font-manrope relative antialiased">
+        <ConvexClientProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="">{children}</main>
+            <Footer />
+          </CartProvider>
+        </ConvexClientProvider>
+        <Toaster richColors />
       </body>
     </html>
   );

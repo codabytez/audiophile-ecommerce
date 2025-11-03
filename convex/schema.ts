@@ -1,3 +1,4 @@
+// convex/schema.ts
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
@@ -18,7 +19,9 @@ export default defineSchema({
     items: v.array(
       v.object({
         productId: v.string(),
+        slug: v.string(),
         name: v.string(),
+        shortName: v.string(),
         price: v.number(),
         quantity: v.number(),
         image: v.string(),
@@ -31,8 +34,15 @@ export default defineSchema({
       grandTotal: v.number(),
     }),
     paymentMethod: v.union(v.literal("e-money"), v.literal("cash")),
+    eMoneyDetails: v.optional(
+      v.object({
+        number: v.string(),
+        pin: v.string(),
+      })
+    ),
     status: v.string(),
   })
     .index("by_orderId", ["orderId"])
-    .index("by_email", ["customerDetails.email"]),
+    .index("by_email", ["customerDetails.email"])
+    .index("by_status", ["status"]),
 });

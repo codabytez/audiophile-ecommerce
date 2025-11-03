@@ -1,27 +1,39 @@
-export interface Product {
-  id: string;
-  name: string;
+interface Product {
+  id: number;
   slug: string;
-  category: "headphones" | "speakers" | "earphones";
-  price: number;
+  name: string;
   image: {
     mobile: string;
     tablet: string;
     desktop: string;
   };
+  category: "earphones" | "headphones" | "speakers";
+  categoryImage: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
   new: boolean;
+  price: number;
   description: string;
   features: string;
-  includes: Array;
+  includes: Array<{
+    quantity: number;
+    item: string;
+  }>;
   gallery: {
     first: { mobile: string; tablet: string; desktop: string };
     second: { mobile: string; tablet: string; desktop: string };
     third: { mobile: string; tablet: string; desktop: string };
   };
-  relatedProducts: string[];
+  others: Array<{
+    slug: string;
+    name: string;
+    image: { mobile: string; tablet: string; desktop: string };
+  }>;
 }
 
-export interface CartItem {
+interface CartItem {
   productId: string;
   name: string;
   price: number;
@@ -29,7 +41,7 @@ export interface CartItem {
   image: string;
 }
 
-export interface Order {
+interface Order {
   _id: string;
   _creationTime: number;
   orderId: string;
