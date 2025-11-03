@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const { orderId, customerDetails, items, totals } = body;
 
     const { data, error } = await resend.emails.send({
-      from: "Audiophile <no-reply@unbuilt.studio>",
+      from: `Audiophile <${process.env.EMAIL_FROM}>`,
       to: [customerDetails.email],
       subject: `Order Confirmation - ${orderId}`,
       react: OrderConfirmationEmail({
