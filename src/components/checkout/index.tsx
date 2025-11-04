@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +18,7 @@ import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import Image from "next/image";
 import { toast } from "sonner";
+import cash from "../../../public/assets/checkout/icon-cash-on-delivery.svg";
 
 const Checkout: NextPage = () => {
   const router = useRouter();
@@ -318,6 +318,17 @@ const Checkout: NextPage = () => {
                     </>
                   )}
                 </div>
+                {paymentMethod === "cash" && (
+                  <div className="mt-8 flex w-full items-center gap-8">
+                    <Image src={cash} alt="Cash on Delivery" />
+                    <p className="text-black/50">
+                      The ‘Cash on Delivery’ option enables you to pay in cash
+                      when our delivery courier arrives at your residence. Just
+                      make sure your address is correct so that your order will
+                      not be cancelled.
+                    </p>
+                  </div>
+                )}
               </div>
             </form>
 
